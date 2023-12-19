@@ -23,27 +23,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <audio id="fireSound" src="./sound/fire.wav"></audio>
-    <audio id="duckSound" src="./sound/duck-sound.mp3"></audio>
+    <audio id="duckSound" src="./sound/duck-sound.wav"></audio>
 
     <title>Duck Hunt V2</title>
   </head>
   <body>
-    <div class="custom-cursor"></div>
     <main>
-      <section id="start-page-section">
-        <div>
-          <p>Shoot them all</p>
-          <button id="start-btn">Start</button>
-        </div>
-      </section>
       <section id="game-container">
-        <div id="game-screen">
-          <img
-            id="capturedDuck"
-            src="./img/duckCaptured.png"
-            alt="Captured Duck"
-          />
+        <div id="start-page-section" class="start-page-section">
+          <p>Duck Hunt</p>
+
+          <button id="start-btn" class="button">
+            <a href="#">Start Game</a>
+          </button>
         </div>
+        <div id="game-screen"></div>
         <div id="game-info">
           <h2>Stats</h2>
           <p>Score: <span id="score"></span></p>
@@ -52,8 +46,8 @@
       </section>
     </main>
     <dialog>
-      <section id="game-over">
-        <p>Good Job Sniper!</p>
+      <section id="game-end">
+        <p id="end-msg"></p>
         <button id="restart-btn">Shoot again</button>
       </section>
     </dialog>

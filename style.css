@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
 * {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 48 48"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;border-radius:50%;background:conic-gradient(from 90deg at 4px 4px,%230000 90deg, %232f2b2f 0) -4px -4px/calc(50% + 2px) calc(50% + 2px),repeating-radial-gradient(%230000 0 22%,%232f2b2f 23% 32%);" ></div></foreignObject></svg>')
       24 24,
@@ -5,28 +7,43 @@
 }
 
 body {
-  padding: 0;
   text-align: center;
-  overflow: hidden;
   user-select: none;
-  position: relative;
 }
 
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 1px solid black;
-}
-
-#start-page-section {
-}
-
-#start-page-section div {
-  text-align: center;
-  color: white;
+.start-page-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 370px;
+  width: 350px;
+  background-color: #000000;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+
+button {
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 15px 10px;
+  a {
+    text-decoration: none;
+  }
+}
+
+button:hover a {
+  color: brown;
+}
+
+.start-page-section p {
+  font-family: "Press Start 2P", cursive;
+  text-shadow: 3px 3px 0px #2038ec;
+  color: #fff;
+  font-size: 2em;
 }
 
 #game-container {
@@ -41,13 +58,41 @@ body {
 #game-screen {
   height: 290px;
   width: 506px;
-  justify-content: center;
-  align-content: center;
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
   background-image: url(./img/background-img.gif);
   background-size: cover;
+}
+
+#game-info {
+  font-family: "Press Start 2P", cursive;
+  background-color: rgb(136, 112, 0);
+  width: 506px;
+}
+
+dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Press Start 2P", cursive;
+  text-shadow: 3px 3px 0px #2038ec;
+  color: #fff;
+  height: 150px;
+  width: 300px;
+  background-color: #000000;
+}
+
+dialog button {
+  font-family: "Press Start 2P", cursive;
+  color: black;
+  font-size: 1.2em;
+  padding: 15px 10px;
+  margin-top: 18px;
+}
+
+dialog button:hover {
+  color: red;
 }
 
 .bullet {
@@ -60,29 +105,18 @@ body {
   display: none;
 }
 
-body button {
-  font-size: 30px;
-  background-color: green;
-  color: #fff;
-  border: 0;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-#capturedDuck {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 50px;
-  height: 50px;
-  display: none;
-}
-
-#game-screen .duck {
+#game-screen .goodDuck {
   height: 100px;
   width: 100px;
   position: absolute;
   animation: moveUpDown 2s infinite;
+}
+
+#game-screen .badDuck {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  animation: moveUpDown 0.8s infinite;
 }
 
 @keyframes moveUpDown {

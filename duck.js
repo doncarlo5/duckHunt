@@ -1,5 +1,3 @@
-const duckSound = document.getElementById("duckSound");
-
 class Duck {
   constructor(gameScreenEl) {
     this.gameScreenEl = gameScreenEl;
@@ -14,7 +12,7 @@ class Duck {
     this.element.style.height = `${this.height}px`;
     this.element.style.left = `${this.x}px`;
     this.element.draggable = false;
-    this.element.classList.add("duck");
+    this.element.classList.add("goodDuck");
     this.gameScreenEl.append(this.element);
   }
 
@@ -26,9 +24,13 @@ class Duck {
   updatePosition() {
     this.element.style.left = `${this.x}px`;
   }
+}
 
-  quack() {
-    duckSound.currentTime = 0;
-    duckSound.play();
+class BadDuck extends Duck {
+  constructor(gameScreenEl) {
+    super(gameScreenEl);
+    this.element.src = "./img/duck-red.gif";
+    this.element.classList.add("badDuck");
+    this.isABadDuck = true;
   }
 }
