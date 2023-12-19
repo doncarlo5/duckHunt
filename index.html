@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <audio id="fireSound" src="./sound/fire.wav"></audio>
+    <audio id="duckSound" src="./sound/duck-sound.mp3"></audio>
+
+    <title>Duck Hunt V2</title>
+  </head>
+  <body>
+    <div class="custom-cursor"></div>
+    <main>
+      <section id="start-page-section">
+        <div>
+          <p>Shoot them all</p>
+          <button id="start-btn">Start</button>
+        </div>
+      </section>
+      <section id="game-container">
+        <div id="game-screen">
+          <img
+            id="capturedDuck"
+            src="./img/duckCaptured.png"
+            alt="Captured Duck"
+          />
+        </div>
+        <div id="game-info">
+          <h2>Stats</h2>
+          <p>Score: <span id="score"></span></p>
+          <p>Lives: <span id="lives"></span></p>
+        </div>
+      </section>
+    </main>
+    <dialog>
+      <section id="game-over">
+        <p>Good Job Sniper!</p>
+        <button id="restart-btn">Shoot again</button>
+      </section>
+    </dialog>
+    <script type="text/javascript" src="./duck.js"></script>
+    <script type="text/javascript" src="./game.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
