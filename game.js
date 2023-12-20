@@ -15,6 +15,16 @@ class Game {
     this.updateLives();
   }
 
+  rulesGame() {
+    gameStartEl.classList.add("hidden");
+    gameRules.style.display = "block";
+  }
+
+  backGame() {
+    gameStartEl.classList.remove("hidden");
+    gameRules.style.display = "none";
+  }
+
   update() {
     this.intervalId = setInterval(() => {
       if (this.counter % 280 === 0) {
@@ -55,10 +65,12 @@ class Game {
   endGame(message) {
     clearInterval(this.intervalId);
     endMsgEl.textContent = message;
+    dialogEl.style.display = "flex";
     dialogEl.showModal();
   }
 
   restartGame() {
+    dialogEl.style.display = "none";
     dialogEl.close();
     for (const duck of this.ducks) {
       duck.element.remove();
@@ -72,7 +84,7 @@ class Game {
     this.updateLives();
 
     if (this.lives === 0) {
-      this.endGame("You lose!");
+      this.endGame("You loose!");
     } else {
       this.gameScreenEl.parentElement.classList.add("blink");
       setTimeout(() => {

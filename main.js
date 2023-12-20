@@ -9,11 +9,17 @@ const dialogEl = document.querySelector("dialog");
 const fireSound = document.getElementById("fireSound");
 const duckSound = document.getElementById("duckSound");
 const endMsgEl = document.getElementById("end-msg");
+const rulesButtonEl = document.getElementById("rules-btn");
+const gameStartEl = document.getElementById("game-start");
+const gameRules = document.getElementById("game-rules");
+const backBtnEl = document.getElementById("back-btn");
 
 let game = new Game(gameScreenEl);
 
 startButtonEl.addEventListener("click", () => game.startGame());
 restartButtonEl.addEventListener("click", () => game.restartGame());
+rulesButtonEl.addEventListener("click", () => game.rulesGame());
+backBtnEl.addEventListener("click", () => game.backGame());
 gameScreenEl.addEventListener("click", (event) =>
   game.handleBulletImpact(event)
 );

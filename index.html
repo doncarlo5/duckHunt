@@ -29,28 +29,61 @@
   </head>
   <body>
     <main>
-      <section id="game-container">
-        <div id="start-page-section" class="start-page-section">
-          <p>Duck Hunt</p>
-
-          <button id="start-btn" class="button">
-            <a href="#">Start Game</a>
-          </button>
-        </div>
-        <div id="game-screen"></div>
-        <div id="game-info">
-          <h2>Stats</h2>
-          <p>Score: <span id="score"></span></p>
-          <p>Lives: <span id="lives"></span></p>
-        </div>
-      </section>
+      <div id="wrapper">
+        <section id="game-container">
+          <div id="start-page-section" class="start-page-section">
+            <div id="game-start">
+              <h1>Duck Hunt</h1>
+              <button id="start-btn" class="button">
+                <a href="#">Start Game</a>
+              </button>
+              <button id="rules-btn" class="button">
+                <a href="#">Rules</a>
+              </button>
+            </div>
+            <div id="game-rules">
+              <h2>Rules</h2>
+              <div class="rules">
+                <div>
+                  <img src="./img/duck-img.gif" alt="" />
+                  <p>Shoot this</p>
+                  <p>duck</p>
+                </div>
+                <div>
+                  <img src="./img/duck-red.gif" alt="" />
+                  <p>Don't shoot!</p>
+                </div>
+              </div>
+              <button id="back-btn" class="button">
+                <a href="#">← Back</a>
+              </button>
+            </div>
+          </div>
+          <div id="game-screen"></div>
+          <div id="game-info">
+            <div class="score">
+              <p>Score: <span id="score"></span></p>
+            </div>
+            <div class="live">
+              <p>
+                Lives: <span id="lives"></span
+                ><img id="heart-img" src="./img/heart-img.webp" alt="Heart" />
+              </p>
+            </div>
+          </div>
+        </section>
+        <dialog>
+          <section id="game-end">
+            <p id="end-msg"></p>
+            <button id="restart-btn">Shoot again</button>
+          </section>
+        </dialog>
+      </div>
+      <div id="warning-message">
+        This game is only viewable in landscape mode. Please turn your phone to
+        play.
+      </div>
     </main>
-    <dialog>
-      <section id="game-end">
-        <p id="end-msg"></p>
-        <button id="restart-btn">Shoot again</button>
-      </section>
-    </dialog>
     <script type="text/javascript" src="./duck.js"></script>
     <script type="text/javascript" src="./game.js"></script>
     <script type="text/javascript" src="./main.js"></script>
