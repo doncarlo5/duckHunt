@@ -11,6 +11,7 @@ class Game {
     this.score = 0;
     this.lives = 3;
     this.level = 1;
+    this.ducksKilled = 0;
     this.intervalId = null;
     this.counter = 1;
     this.ducks = [];
@@ -65,7 +66,7 @@ class Game {
         duck.move();
         this.checkOutDuck(duck);
       }
-      if (this.score === 10) {
+      if (this.ducksKilled === 3) {
         this.winGame();
       }
     }, 1000 / 60);
@@ -80,10 +81,10 @@ class Game {
     winEl.style.display = "none";
     this.difficulty++;
     this.level++;
-    this.score = 0;
     this.updateScore();
     this.update();
     this.updateLevel();
+    this.ducksKilled = 0;
   }
 
   winGame() {
@@ -120,6 +121,7 @@ class Game {
     }
     this.ducks = [];
     this.startGame();
+    this.ducksKilled = 0;
   }
 
   handleDuckOutOfScreen() {
@@ -159,6 +161,7 @@ class Game {
       this.handleBadDuckShot();
     } else {
       this.score += 10;
+      this.ducksKilled++;
       this.updateScore();
     }
     duck.element.remove();
