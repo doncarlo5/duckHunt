@@ -1,18 +1,33 @@
 class Game {
   constructor(gameScreenEl) {
     this.gameScreenEl = gameScreenEl;
+    this.difficulty = 2;
   }
 
   startGame() {
+    introSound.currentTime = 0;
+    introSound.play();
     startPageSection.classList.add("hidden");
     this.score = 0;
     this.lives = 3;
+    this.level = 1;
     this.intervalId = null;
     this.counter = 1;
     this.ducks = [];
     this.update();
     this.updateScore();
     this.updateLives();
+    this.updateLevel();
+  }
+
+  menuLooseGame() {
+    looseEl.style.display = "none";
+    startPageSection.classList.remove("hidden");
+  }
+
+  menuWinGame() {
+    winEl.style.display = "none";
+    startPageSection.classList.remove("hidden");
   }
 
   rulesGame() {
@@ -27,15 +42,17 @@ class Game {
 
   update() {
     this.intervalId = setInterval(() => {
-      if (this.counter % 280 === 0) {
+      const randomFrequency = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
+
+      if (this.counter % randomFrequency === 0) {
         if (Math.random() > 0.5) {
-          const duck = new Duck(this.gameScreenEl);
+          const duck = new Duck(this.gameScreenEl, this.difficulty);
           duck.element.addEventListener("click", () =>
             this.handleDuckClick(duck)
           );
           this.ducks.push(duck);
         } else {
-          const duck = new BadDuck(this.gameScreenEl);
+          const duck = new BadDuck(this.gameScreenEl, this.difficulty);
           duck.element.addEventListener("click", () =>
             this.handleDuckClick(duck)
           );
@@ -48,10 +65,32 @@ class Game {
         duck.move();
         this.checkOutDuck(duck);
       }
-      if (this.score === 30) {
-        this.endGame("You win!");
+      if (this.score === 10) {
+        this.winGame();
       }
     }, 1000 / 60);
+  }
+
+  nextLevel() {
+    clearInterval(this.intervalId);
+    for (const duck of this.ducks) {
+      duck.element.remove();
+    }
+    this.ducks = [];
+    winEl.style.display = "none";
+    this.difficulty++;
+    this.level++;
+    this.score = 0;
+    this.updateScore();
+    this.update();
+    this.updateLevel();
+  }
+
+  winGame() {
+    winSound.currentTime = 0;
+    winSound.play();
+    clearInterval(this.intervalId);
+    winEl.style.display = "flex";
   }
 
   updateScore() {
@@ -62,16 +101,20 @@ class Game {
     livesEl.textContent = this.lives;
   }
 
-  endGame(message) {
+  updateLevel() {
+    levelNumberEl.textContent = `Level ${this.level} completed !`;
+  }
+
+  looseGame() {
+    looseSound.currentTime = 0;
+    looseSound.play();
+    looseSound.volume = 0.5;
     clearInterval(this.intervalId);
-    endMsgEl.textContent = message;
-    dialogEl.style.display = "flex";
-    dialogEl.showModal();
+    looseEl.style.display = "flex";
   }
 
   restartGame() {
-    dialogEl.style.display = "none";
-    dialogEl.close();
+    looseEl.style.display = "none";
     for (const duck of this.ducks) {
       duck.element.remove();
     }
@@ -82,9 +125,11 @@ class Game {
   handleDuckOutOfScreen() {
     this.lives--;
     this.updateLives();
+    hurtSound.currentTime = 0;
+    hurtSound.play();
 
     if (this.lives === 0) {
-      this.endGame("You loose!");
+      this.looseGame();
     } else {
       this.gameScreenEl.parentElement.classList.add("blink");
       setTimeout(() => {
@@ -110,7 +155,7 @@ class Game {
 
   handleDuckClick(duck) {
     this.handleShot();
-    if (duck.isABadDuck) {
+    if (duck.type === "bad-duck") {
       this.handleBadDuckShot();
     } else {
       this.score += 10;
@@ -126,8 +171,10 @@ class Game {
   handleBadDuckShot() {
     this.lives--;
     this.updateLives();
+    hurtSound.currentTime = 0;
+    hurtSound.play();
     if (this.lives === 0) {
-      this.endGame("You lose!");
+      this.looseGame();
     } else {
       this.gameScreenEl.parentElement.classList.add("blink");
       setTimeout(() => {

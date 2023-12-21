@@ -24,6 +24,11 @@
     <link rel="stylesheet" href="./style.css" />
     <audio id="fireSound" src="./sound/fire.wav"></audio>
     <audio id="duckSound" src="./sound/duck-sound.wav"></audio>
+    <audio id="buttonSound" src="./sound/button.wav"></audio>
+    <audio id="hurtSound" src="./sound/hurt.wav"></audio>
+    <audio id="introSound" src="./sound/intro.wav"></audio>
+    <audio id="looseSound" src="./sound/loose.wav"></audio>
+    <audio id="winSound" src="./sound/win.wav"></audio>
 
     <title>Duck Hunt V2</title>
   </head>
@@ -71,13 +76,17 @@
               </p>
             </div>
           </div>
+          <div id="loose-end">
+            <p>You loose !</p>
+            <button id="tryAgain-btn">Try again</button>
+            <button id="menuLoose-btn">Menu</button>
+          </div>
+          <div id="win-end">
+            <p id="levelNumber"></p>
+            <button id="nextLevel-btn">Next Level</button>
+            <button id="menuWin-btn">Menu</button>
+          </div>
         </section>
-        <dialog>
-          <section id="game-end">
-            <p id="end-msg"></p>
-            <button id="restart-btn">Shoot again</button>
-          </section>
-        </dialog>
       </div>
       <div id="warning-message">
         This game is only viewable in landscape mode. Please turn your phone to

@@ -1,25 +1,45 @@
 const startButtonEl = document.getElementById("start-btn");
-const restartButtonEl = document.getElementById("restart-btn");
+const tryAgainBtnEl = document.getElementById("tryAgain-btn");
+const nextLevelBtnEl = document.getElementById("nextLevel-btn");
 const startPageSection = document.getElementById("start-page-section");
 const gameScreenEl = document.getElementById("game-screen");
 const gameInfoEl = document.getElementById("game-info");
 const scoreEl = document.getElementById("score");
 const livesEl = document.getElementById("lives");
-const dialogEl = document.querySelector("dialog");
+const looseEl = document.getElementById("loose-end");
+const winEl = document.getElementById("win-end");
 const fireSound = document.getElementById("fireSound");
 const duckSound = document.getElementById("duckSound");
-const endMsgEl = document.getElementById("end-msg");
+const buttonSound = document.getElementById("buttonSound");
 const rulesButtonEl = document.getElementById("rules-btn");
 const gameStartEl = document.getElementById("game-start");
 const gameRules = document.getElementById("game-rules");
 const backBtnEl = document.getElementById("back-btn");
+const menuLooseBtn = document.getElementById("menuLoose-btn");
+const menuWinBtn = document.getElementById("menuWin-btn");
+const levelNumberEl = document.getElementById("levelNumber");
+const buttonsEl = document.querySelectorAll("button");
+const hurtSound = document.getElementById("hurtSound");
+const introSound = document.getElementById("introSound");
+const looseSound = document.getElementById("looseSound");
+const winSound = document.getElementById("winSound");
 
 let game = new Game(gameScreenEl);
 
 startButtonEl.addEventListener("click", () => game.startGame());
-restartButtonEl.addEventListener("click", () => game.restartGame());
+tryAgainBtnEl.addEventListener("click", () => game.restartGame());
+nextLevelBtnEl.addEventListener("click", () => game.nextLevel());
 rulesButtonEl.addEventListener("click", () => game.rulesGame());
 backBtnEl.addEventListener("click", () => game.backGame());
+menuLooseBtn.addEventListener("click", () => game.menuLooseGame());
+menuWinBtn.addEventListener("click", () => game.menuWinGame());
 gameScreenEl.addEventListener("click", (event) =>
   game.handleBulletImpact(event)
 );
+
+buttonsEl.forEach((button) => {
+  button.addEventListener("click", () => {
+    buttonSound.currentTime = 0;
+    buttonSound.play();
+  });
+});
