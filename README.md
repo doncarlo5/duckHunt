@@ -1,6 +1,6 @@
 # Duck Hunt 🦆 - By Julien THOMAS
 
-![Cover Image](./img/cover-img.png)
+<img src="./img/cover-img.png" width="60%">
 
 ### [Play the game](duck-hunt-seven.vercel.app) 🎮
 
