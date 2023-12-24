@@ -1,7 +1,7 @@
 class Game {
   constructor(gameScreenEl) {
     this.gameScreenEl = gameScreenEl;
-    this.difficulty = 2;
+    this.difficulty = 3;
   }
 
   startGame() {
@@ -79,7 +79,7 @@ class Game {
     }
     this.ducks = [];
     winEl.style.display = "none";
-    this.difficulty++;
+    this.difficulty = this.difficulty * 1.5;
     this.level++;
     this.updateScore();
     this.update();
