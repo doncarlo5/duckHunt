@@ -143,6 +143,19 @@ button:hover a {
   order: 2;
 }
 
+.mute {
+  height: 40px;
+  width: 50px;
+  background-color: #000000;
+  opacity: 80%;
+  border: #ffffffe0 solid 2px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+}
+
 .live {
   color: #fff;
   height: 40px;

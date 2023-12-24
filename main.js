@@ -23,6 +23,8 @@ const hurtSound = document.getElementById("hurtSound");
 const introSound = document.getElementById("introSound");
 const looseSound = document.getElementById("looseSound");
 const winSound = document.getElementById("winSound");
+const muteButton = document.getElementById("mute-button");
+const allSounds = document.querySelectorAll("audio");
 
 let game = new Game(gameScreenEl);
 
@@ -36,6 +38,7 @@ menuWinBtn.addEventListener("click", () => game.menuWinGame());
 gameScreenEl.addEventListener("click", (event) =>
   game.handleBulletImpact(event)
 );
+muteButton.addEventListener("click", toggleMute);
 
 buttonsEl.forEach((button) => {
   button.addEventListener("click", () => {
@@ -43,3 +46,13 @@ buttonsEl.forEach((button) => {
     buttonSound.play();
   });
 });
+
+function toggleMute() {
+  allSounds.forEach((sound) => {
+    sound.muted = !sound.muted;
+  });
+  muteButton.textContent = allSounds[0].muted ? "🔇" : "🔈";
+}
+
+toggleMute();
+toggleMute();

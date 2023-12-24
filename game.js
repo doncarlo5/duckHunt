@@ -157,7 +157,7 @@ class Game {
 
   handleDuckClick(duck) {
     this.handleShot();
-    if (duck.type === "bad-duck") {
+    if (duck.isABadDuck) {
       this.handleBadDuckShot();
     } else {
       this.score += 10;

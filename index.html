@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link
-  rel="icon"
-  href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦆</text></svg>"
-/>
+  <head>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦆</text></svg>"
+    />
     <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,9 +53,11 @@
           </div>
           <div id="game-screen"></div>
           <div id="game-info">
+            <button class="button mute" id="mute-button"></button>
             <div class="score">
               <p>Score: <span id="score"></span></p>
             </div>
+
             <div class="live">
               <p>
                 Lives: <span id="lives"></span
