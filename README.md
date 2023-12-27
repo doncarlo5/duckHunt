@@ -1,4 +1,4 @@
-# Duck Hunt 🦆 - By Julien THOMAS
+# Duck Hunt 🦆 - by Julien THOMAS
 
 <a href="https://duck-hunt-seven.vercel.app"><img src="./img/cover-img.png" width="60%" /></a>
 
