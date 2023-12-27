@@ -11,15 +11,15 @@ This game is a browser-based game using HTML, CSS, JavaScript, DOM manipulation,
 
 ## Features
 
-- 🏎 **Challenging difficulty levels** (Increase speed of ducks)
+- 🏎 **Challenging difficulty levels** (increase speed of ducks)
 - 🪿 **Different types of ducks**
 - 🥰 **Adorable ducks**
-- 🎨 **Using orginial design**
+- 🎨 **Using original design**
 
 ## ⚙️ Behind the scene
 
 - 👾 **Game loop**
-- 🎲 **Random Apparition** (Frequency and duck type)
+- 🎲 **Random Apparition** (frequency and duck type)
 - 📱 **Responsive Design** (warning message portrait mode)
 - 🎞️ **Multiple CSS Animations**
 
