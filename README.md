@@ -4,7 +4,7 @@
 
 ### [Play the game](duck-hunt-seven.vercel.app) 🎮
 
-# ⚡️Introduction
+# ⚡️ Introduction
 
 I get inspired by the famous video game Duck Hunt on NES.
 This game is a browser-based game using HTML, CSS, JavaScript, DOM manipulation, and Object-Oriented Programming (OOP).
